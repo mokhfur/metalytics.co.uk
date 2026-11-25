@@ -189,7 +189,10 @@ pages["index.html"] = header(
   <div class="wrap">
     <div class="center" style="margin-bottom:clamp(2.5rem,5vw,4rem)"><h2>How it works</h2></div>
     <div class="split">
-      <div class="split__media"><img src="/assets/img/art-trend.png" alt="" width="800" height="600" loading="lazy"></div>
+      <div class="split__media"><picture>
+        <source media="(max-width:520px)" srcset="{asset('/assets/img/art-metadata-review-stacked.svg')}" width="420" height="680">
+        <img src="{asset('/assets/img/art-metadata-review.svg')}" alt="The review in four steps: business objectives, the metadata you hold, processes and workflows, then a plan to improve. It powers efficiency, quality, informed decisions and operational excellence." width="720" height="480" loading="lazy">
+      </picture></div>
       <div>
         <h3>Do you know your metadata?</h3>
         <p>Our expert team of data analysts will identify your business objectives, what useful metadata your organisation holds, review your processes and workflows then strategies a plan on how improvements can be made by allowing your metadata to empower efficiency, quality, informed decision-making and operational excellence.</p>

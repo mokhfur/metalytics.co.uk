@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-label="The metadata review: business objectives, the metadata you hold, processes and workflows, then a plan to improve. It powers efficiency, quality, informed decisions and operational excellence.">
+  <defs>
+    <style>
+      .s{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+      .lbl{font-size:20px;font-weight:700;fill:#1b1033}
+      .num{font-size:14px;font-weight:700;fill:#fff}
+      .cap{font-size:16px;font-weight:500;fill:#64647a}
+      .out{font-size:17px;font-weight:600;fill:#1b1033}
+      .ico{fill:none;stroke:#7b30fc;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <g id="chev"><path d="M0 -5.5 5.5 0 0 5.5" fill="none" stroke="#c9c1e4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g id="tick"><path d="m-4.6 .2 3.2 3.2 6-6.4" fill="none" stroke="#7b30fc" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  </defs>
+
+  <rect x=".75" y=".75" width="718.5" height="478.5" rx="18" fill="#fff" stroke="#e9e7f2" stroke-width="1.5"/>
+
+  <!-- step 1 : business objectives -->
+  <g>
+    <rect x="41" y="40" width="146" height="176" rx="14" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="67" cy="66" r="14" fill="#7b30fc"/>
+    <text x="67" y="71" text-anchor="middle" class="s num">1</text>
+    <g class="ico" transform="translate(114 116)">
+      <circle cx="0" cy="0" r="12.5"/><circle cx="0" cy="0" r="6.5"/><circle cx="0" cy="0" r="1.1"/>
+      <path d="M0-18v4M0 14v4M-18 0h4M14 0h4"/>
+    </g>
+    <text x="114" y="166" text-anchor="middle" class="s lbl">Business</text>
+    <text x="114" y="189" text-anchor="middle" class="s lbl">objectives</text>
+  </g>
+  <use href="#chev" x="0" y="0" transform="translate(196 116)"/>
+
+  <!-- step 2 : the metadata you hold -->
+  <g>
+    <rect x="205" y="40" width="146" height="176" rx="14" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="231" cy="66" r="14" fill="#7b30fc"/>
+    <text x="231" y="71" text-anchor="middle" class="s num">2</text>
+    <g class="ico" transform="translate(278 116)">
+      <ellipse cx="0" cy="-11" rx="13.5" ry="4.8"/>
+      <path d="M-13.5-11v9.5c0 2.65 6.04 4.8 13.5 4.8s13.5-2.15 13.5-4.8V-11"/>
+      <path d="M-13.5-1.5V8c0 2.65 6.04 4.8 13.5 4.8S13.5 10.65 13.5 8V-1.5"/>
+    </g>
+    <text x="278" y="166" text-anchor="middle" class="s lbl">Metadata</text>
+    <text x="278" y="189" text-anchor="middle" class="s lbl">you hold</text>
+  </g>
+  <use href="#chev" transform="translate(360 116)"/>
+
+  <!-- step 3 : processes and workflows -->
+  <g>
+    <rect x="369" y="40" width="146" height="176" rx="14" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="395" cy="66" r="14" fill="#7b30fc"/>
+    <text x="395" y="71" text-anchor="middle" class="s num">3</text>
+    <g class="ico" transform="translate(442 116)">
+      <rect x="-15" y="-15.5" width="11" height="9" rx="2.2"/>
+      <rect x="4" y="-15.5" width="11" height="9" rx="2.2"/>
+      <rect x="-5.5" y="6.5" width="11" height="9" rx="2.2"/>
+      <path d="M-9.5-6.5v4.5h19v-4.5M0-2v8.5"/>
+    </g>
+    <text x="442" y="166" text-anchor="middle" class="s lbl">Processes &amp;</text>
+    <text x="442" y="189" text-anchor="middle" class="s lbl">workflows</text>
+  </g>
+  <use href="#chev" transform="translate(524 116)"/>
+
+  <!-- step 4 : the plan -->
+  <g>
+    <rect x="533" y="40" width="146" height="176" rx="14" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="559" cy="66" r="14" fill="#7b30fc"/>
+    <text x="559" y="71" text-anchor="middle" class="s num">4</text>
+    <g class="ico" transform="translate(606 116)">
+      <path d="M-14 14 -5 2.5 2.5 8 14-9"/>
+      <path d="M8-9h6v6"/>
+      <path d="M-16.5 17.5h33"/>
+    </g>
+    <text x="606" y="166" text-anchor="middle" class="s lbl">A plan to</text>
+    <text x="606" y="189" text-anchor="middle" class="s lbl">improve</text>
+  </g>
+
+  <line x1="41" y1="250" x2="679" y2="250" stroke="#edebf6" stroke-width="1.5"/>
+  <text x="360" y="287" text-anchor="middle" class="s cap">Then your metadata powers</text>
+
+  <!-- outcomes -->
+  <g>
+    <rect x="41" y="306" width="300" height="56" rx="12" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="69" cy="334" r="13" fill="#7b30fc" fill-opacity=".12"/>
+    <use href="#tick" transform="translate(69 334)"/>
+    <text x="95" y="340" class="s out">Efficiency</text>
+  </g>
+  <g>
+    <rect x="379" y="306" width="300" height="56" rx="12" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="407" cy="334" r="13" fill="#7b30fc" fill-opacity=".12"/>
+    <use href="#tick" transform="translate(407 334)"/>
+    <text x="433" y="340" class="s out">Quality</text>
+  </g>
+  <g>
+    <rect x="41" y="374" width="300" height="56" rx="12" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="69" cy="402" r="13" fill="#7b30fc" fill-opacity=".12"/>
+    <use href="#tick" transform="translate(69 402)"/>
+    <text x="95" y="408" class="s out">Informed decisions</text>
+  </g>
+  <g>
+    <rect x="379" y="374" width="300" height="56" rx="12" fill="#f8f7fc" stroke="#edebf6"/>
+    <circle cx="407" cy="402" r="13" fill="#7b30fc" fill-opacity=".12"/>
+    <use href="#tick" transform="translate(407 402)"/>
+    <text x="433" y="408" class="s out">Operational excellence</text>
+  </g>
+</svg>
