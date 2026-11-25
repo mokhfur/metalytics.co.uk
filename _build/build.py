@@ -4,7 +4,7 @@ import os, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.metalytics.co.uk"
-GUIDE_PDF = "https://www.metalytics.co.uk/_files/ugd/5d717a_7221606fcc414edc973406a8bb070248.pdf"
+GUIDE_PDF = "/assets/docs/metalytics-tlf-lifecycle-guide.pdf"
 
 GLYPHS = {
  "story": '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v13"/><path d="M6 17h12v3H6a2 2 0 0 1 0-4"/><path d="M9 8h6"/></svg>',
@@ -163,7 +163,7 @@ pages["index.html"] = header(
         <span class="eyebrow">Free guide</span>
         <h2>5 Benefits and Strategies to drive efficiency and productivity in the TLF lifecycle, without increasing the team size!</h2>
         <p>Download our FREE GUIDE</p>
-        <a class="btn btn--ghost" href="{GUIDE_PDF}" rel="noopener">Download</a>
+        <a class="btn btn--ghost" href="{GUIDE_PDF}" download>Download the guide (PDF, 3 pages)</a>
       </div>
       <div class="split__media"><img src="/assets/img/tlf-guide.png" alt="Preview of the TLF Process Guide" width="900" height="600" loading="lazy"></div>
     </div>

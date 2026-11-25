@@ -25,6 +25,7 @@ to `/page` so each page has one canonical address.
 | `assets/css/site.css` | All styling — one file, no framework |
 | `assets/js/site.js` | Mobile navigation and in-place form submission |
 | `assets/img/` | Logo, hero, illustrations and the Pharma feature panels |
+| `assets/docs/` | The TLF lifecycle guide offered on the homepage |
 | `contact.php` | Enquiry form handler (all three forms) |
 | `_build/build.py` | Regenerates the HTML pages from shared header, footer and form |
 | `_snapshot/` | The original Wix captures, kept for reference. Blocked from the public site |
@@ -61,13 +62,10 @@ refuse to send. Create both mailboxes in hPanel first.
 
 ## Still outstanding
 
-1. **The TLF guide PDF.** The Download button on the homepage still points at the
-   PDF on the Wix site. Drop the file in `assets/docs/` and change `GUIDE_PDF` in
-   `_build/build.py`, or the button breaks when the Wix site goes.
-2. **Fonts.** The Wix build used Avenir, DIN Next, Helvetica and Proxima Nova,
+1. **Fonts.** The Wix build used Avenir, DIN Next, Helvetica and Proxima Nova,
    which are licensed to Wix and were not carried over. The site uses the
    system font stack instead. Licensing a webfont is a separate decision.
-3. **Analytics.** The cookie policy mentions Google Analytics; no analytics tag
+2. **Analytics.** The cookie policy mentions Google Analytics; no analytics tag
    is installed on this build.
 
 ## History
