@@ -191,7 +191,8 @@ pages["index.html"] = header(
 </section>
 
 """ + form("meeting", "Request a meeting",
-           "Get in touch with one of our consultants to see how we can let your metadata empower you.") \
+           "Get in touch with one of our consultants to see how we can let your metadata empower you.",
+           button="Submit") \
   + closer("Elevate your productivity with Metalytics&rsquo; advanced workflow solutions.",
            "Streamline your processes and achieve superior efficiency and quality.") + FOOTER
 
