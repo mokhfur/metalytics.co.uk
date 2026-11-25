@@ -8,6 +8,7 @@ the Wix build and has no dependency on Wix, its CDN or its runtime.
 | URL | File | Notes |
 | --- | --- | --- |
 | `/` | `index.html` | Home |
+| `/about` | `about.html` | About us — company, expertise, offices |
 | `/automation` | `automation.html` | Metadata Driven Automation |
 | `/pharma` | `pharma.html` | Statistical programming / PharmaBot |
 | `/privacy-policy` | `privacy-policy.html` | Policy text unchanged, last updated 20 May 2018 |

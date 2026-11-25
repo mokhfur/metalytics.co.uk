@@ -287,3 +287,22 @@ p{margin:0 0 1.1em}
 @media (prefers-reduced-motion:reduce){
   .carousel.is-ready .carousel__slide{transform:none!important}
 }
+
+/* ---------- about: capability cards + offices ---------- */
+.caps{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cap{
+  background:#fff;border:1px solid var(--line);border-left:3px solid var(--violet);
+  border-radius:12px;padding:1.3rem 1.4rem;transition:transform .18s ease,box-shadow .18s ease;
+}
+.cap:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.cap h3{font-size:1.08rem;margin-bottom:.4rem}
+.cap h3 a{color:var(--ink);text-decoration:none}
+.cap h3 a:hover{color:var(--violet-600);text-decoration:underline}
+.cap p{margin:0;font-size:.95rem;color:var(--muted)}
+
+.office{
+  background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.6rem;
+}
+.office h3{font-size:1.05rem;margin-bottom:.6rem}
+.office p{margin:0 0 .5rem;color:var(--muted);font-size:.96rem;line-height:1.65}
+.office p:last-child{margin-bottom:0}
