@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
 """Build the static Metalytics site. Run:  python3 _build/build.py"""
-import os, html
+import os, html, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://www.metalytics.co.uk"
 GUIDE_PDF = "/assets/docs/metalytics-tlf-lifecycle-guide.pdf"
+
+
+def asset(path):
+    """Append a short content hash so a changed file gets a brand-new URL.
+
+    Without this, the year-long immutable cache in .htaccess pins visitors to
+    whatever CSS they first downloaded.
+    """
+    full = os.path.join(ROOT, path.lstrip("/"))
+    try:
+        with open(full, "rb") as fh:
+            return f"{path}?v={hashlib.sha1(fh.read()).hexdigest()[:8]}"
+    except OSError:
+        return path
 
 GLYPHS = {
  "story": '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h11a1 1 0 0 1 1 1v13"/><path d="M6 17h12v3H6a2 2 0 0 1 0-4"/><path d="M9 8h6"/></svg>',
@@ -39,7 +53,7 @@ def header(active, title, desc, path):
 <link rel="apple-touch-icon" href="/assets/img/favicon.png">
 <meta name="theme-color" content="#0c0718">
 <link rel="preload" as="image" href="/assets/img/hero-circuit.jpg">
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="{asset('/assets/css/site.css')}">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -88,7 +102,7 @@ FOOTER = f"""</main>
     </div>
   </div>
 </footer>
-<script src="/assets/js/site.js" defer></script>
+<script src="{asset('/assets/js/site.js')}" defer></script>
 </body>
 </html>
 """
