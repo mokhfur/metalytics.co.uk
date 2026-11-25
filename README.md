@@ -1,58 +1,77 @@
 # metalytics.co.uk
 
-Static snapshots of the Metalytics website (www.metalytics.co.uk), captured from
-the live Wix site and uploaded here as the starting point for moving the site to
-Hostinger.
+The Metalytics website, rebuilt as a plain static site for Hostinger. It replaces
+the Wix build and has no dependency on Wix, its CDN or its runtime.
 
-## What is in here
+## Pages
+
+| URL | File | Notes |
+| --- | --- | --- |
+| `/` | `index.html` | Home |
+| `/automation` | `automation.html` | Metadata Driven Automation |
+| `/pharma` | `pharma.html` | Statistical programming / PharmaBot |
+| `/privacy-policy` | `privacy-policy.html` | Policy text unchanged, last updated 20 May 2018 |
+| `/cookie-policy` | `cookie-policy.html` | Policy text unchanged |
+| `/thank-you` | `thank-you.html` | Shown after a form POST without JavaScript |
+| — | `404.html` | Served by `ErrorDocument` |
+
+Extensionless URLs are handled by `.htaccess`, which also redirects `/page.html`
+to `/page` so each page has one canonical address.
+
+## Layout
 
 | Path | Contents |
 | --- | --- |
-| `index.html` | Homepage, as rendered by Wix (saveweb2zip capture, assets in the folders below) |
-| `automation.html` | `/automation` page — "Metadata Driven Automation" (single-file capture, 25 Nov 2026) |
-| `pharma.html` | `/pharma` page — "Increase Statistical Programming Efficiency" (single-file capture, 25 Nov 2026) |
-| `images/` | Images referenced by the homepage |
-| `fonts/` | Web fonts (Avenir, DIN Next, Helvetica, Proxima Nova, Open Sans) |
-| `js/` | JavaScript bundles saved alongside the homepage |
-| `media/file.mp4` | Background/promo video used on the homepage |
+| `assets/css/site.css` | All styling — one file, no framework |
+| `assets/js/site.js` | Mobile navigation and in-place form submission |
+| `assets/img/` | Logo, hero, illustrations and the Pharma feature panels |
+| `contact.php` | Enquiry form handler (all three forms) |
+| `_build/build.py` | Regenerates the HTML pages from shared header, footer and form |
+| `_snapshot/` | The original Wix captures, kept for reference. Blocked from the public site |
 
-Note that the two captures differ in format from `index.html`: they are
-single-file saves with their images inlined as `data:` URIs, so they have no
-matching asset folders of their own.
+Both `_build/` and `_snapshot/` are denied in `.htaccess`, so they stay in the
+repository without being served.
 
-## Page inventory
+## Editing
 
-| Live page | Captured |
-| --- | --- |
-| `/` (home) | Yes — `index.html` |
-| `/automation` | Yes — `automation.html` |
-| `/pharma` | Yes — `pharma.html` |
-| `/privacy-policy` | No |
-| `/cookie-policy` | No |
-| TLF Lifecycle guide PDF (`/_files/ugd/`) | No |
+The five pages share one header, footer and form. Edit `_build/build.py` and run:
 
-## Known limitations of these snapshots
+```sh
+python3 _build/build.py
+```
 
-These are captures of individual pages, not a working standalone site. Before
-anything here can be hosted, three things need dealing with:
-
-1. **Two pages and the PDF are still missing** — see the inventory above.
-2. **Internal links are absolute** to `https://www.metalytics.co.uk/...`, so
-   they point back at the live Wix site rather than at each other.
-3. **Every page still loads scripts and stylesheets from Wix's CDN**
-   (`static.parastorage.com`, `siteassets.parastorage.com`,
-   `static.wixstatic.com`) — around 240 references per page. Those bundles are
-   tied to the site's Wix `metaSiteId` and revision, so the layout depends on
-   Wix continuing to serve them.
+That rewrites the HTML files. Editing a built `.html` file directly works too,
+but the change is lost the next time the builder runs.
 
 ## Forms
 
-All three pages carry a Wix-hosted form with the same fields (First Name, Last
-Name, Email, Message, Company, Position):
+The three forms (Request a meeting / Request a Review / Request a Demo) all post
+to `contact.php`, which validates the input, blocks header injection, carries a
+honeypot field against bots, and emails the enquiry.
 
-- home — "Request a meeting"
-- `/automation` — "Request a Review"
-- `/pharma` — "Request a Demo"
+**Before go-live, set the destination inbox** at the top of `contact.php`:
 
-These are handled by Wix and will stop working as soon as the site leaves Wix.
-A replacement needs choosing as part of the move.
+```php
+const MAIL_TO   = 'info@metalytics.co.uk';   // where enquiries land
+const MAIL_FROM = 'no-reply@metalytics.co.uk';  // must stay on this domain
+```
+
+`MAIL_FROM` has to be an address on the site's own domain or Hostinger will
+refuse to send. Create both mailboxes in hPanel first.
+
+## Still outstanding
+
+1. **The TLF guide PDF.** The Download button on the homepage still points at the
+   PDF on the Wix site. Drop the file in `assets/docs/` and change `GUIDE_PDF` in
+   `_build/build.py`, or the button breaks when the Wix site goes.
+2. **Fonts.** The Wix build used Avenir, DIN Next, Helvetica and Proxima Nova,
+   which are licensed to Wix and were not carried over. The site uses the
+   system font stack instead. Licensing a webfont is a separate decision.
+3. **Analytics.** The cookie policy mentions Google Analytics; no analytics tag
+   is installed on this build.
+
+## History
+
+The first two commits hold the saveweb2zip and single-file captures of the Wix
+site. They are kept in `_snapshot/` as the record of what the site looked like
+before the move.
