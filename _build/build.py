@@ -243,9 +243,38 @@ BENEFITS = [
  "Instantly visualise the current progress and status of programs and outputs",
  "Never need to worry about differences in programs or results as everything is fully traceable and comparable",
 ]
-FEATURE_CARDS = "".join(
-    f'<div class="card"><img src="/assets/img/pharma-feature-{i}.png" alt="Metalytics clinical reporting feature {i}" width="828" height="520" loading="lazy"></div>'
-    for i in range(1, 7))
+FEATURES = [
+ ("Quality &amp; Consistency", "What steps are you taking to raise the quality and consistency across your processes?"),
+ ("Traceability",             "Are the results and outputs in your study report traceable back to your data as required by FDA?"),
+ ("Oversight",                "Do you have adequate oversight of programming, validation and QC across your clinical studies?"),
+ ("Audit",                    "Can you demonstrate that all actions from the data to the study reports are audited?"),
+ ("Harmonization",            "Do you have harmonization across your data sources and output generation?"),
+ ("Minimising Risk",          "Can you show regulatory how you are minimising risk in the entire programming and QC process?"),
+]
+
+SLIDES = "".join(
+    f'''<li class="carousel__slide" role="group" aria-roledescription="slide" aria-label="{i} of {len(FEATURES)}: {title}">
+        <img src="/assets/img/pharma-feature-{i}.png" alt="{alt}" width="828" height="520" loading="lazy" decoding="async">
+      </li>'''
+    for i, (title, alt) in enumerate(FEATURES, 1))
+
+DOTS = "".join(
+    f'''<button class="carousel__dot" type="button" role="tab" aria-label="{title}" aria-selected="{"true" if i == 1 else "false"}"></button>'''
+    for i, (title, alt) in enumerate(FEATURES, 1))
+
+ARROW = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>'
+
+FEATURE_CARDS = f'''<div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Metalytics clinical reporting features">
+      <div class="carousel__stage">
+        <button class="carousel__arrow carousel__arrow--prev" type="button" aria-label="Previous feature">{ARROW}</button>
+        <div class="carousel__viewport">
+          <ul class="carousel__track">{SLIDES}</ul>
+        </div>
+        <button class="carousel__arrow carousel__arrow--next" type="button" aria-label="Next feature">{ARROW}</button>
+      </div>
+      <p class="carousel__caption" aria-live="polite"><span class="carousel__count">1 / {len(FEATURES)}</span><span class="carousel__title">{FEATURES[0][0]}</span></p>
+      <div class="carousel__dots" role="tablist" aria-label="Choose a feature">{DOTS}</div>
+    </div>'''
 
 pages["pharma.html"] = header(
     "pharma", "Pharma | Metalytics",
@@ -290,7 +319,7 @@ pages["pharma.html"] = header(
       <h2>Produce a Summary Table with just a few clicks</h2>
       <p class="lede">Effortlessly generate Figures, and see how Metalytics answers the questions reviewers and auditors ask.</p>
     </div>
-    <div class="cards">{FEATURE_CARDS}</div>
+    {FEATURE_CARDS}
   </div>
 </section>
 
