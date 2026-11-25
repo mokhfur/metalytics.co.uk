@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /_snapshot/
+Disallow: /_build/
+Disallow: /thank-you
+
+Sitemap: https://www.metalytics.co.uk/sitemap.xml
