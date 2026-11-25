@@ -300,9 +300,3 @@ p{margin:0 0 1.1em}
 .cap h3 a:hover{color:var(--violet-600);text-decoration:underline}
 .cap p{margin:0;font-size:.95rem;color:var(--muted)}
 
-.office{
-  background:#fff;border:1px solid var(--line);border-radius:12px;padding:1.5rem 1.6rem;
-}
-.office h3{font-size:1.05rem;margin-bottom:.6rem}
-.office p{margin:0 0 .5rem;color:var(--muted);font-size:.96rem;line-height:1.65}
-.office p:last-child{margin-bottom:0}

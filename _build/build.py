@@ -481,11 +481,7 @@ SCHEMA = """<script type=\"application/ld+json\">
         \"applicationCategory\": \"BusinessApplication\",
         \"url\": \"https://www.metalytics.co.uk/\"
       }
-    },
-    \"address\": [
-      {\"@type\": \"PostalAddress\", \"streetAddress\": \"The Charter Building, Charter Place\", \"addressLocality\": \"Uxbridge\", \"addressRegion\": \"Middlesex\", \"postalCode\": \"UB8 1JG\", \"addressCountry\": \"GB\"},
-      {\"@type\": \"PostalAddress\", \"streetAddress\": \"93 Kajolshah\", \"addressLocality\": \"Sylhet\", \"postalCode\": \"3100\", \"addressCountry\": \"BD\"}
-    ]
+    }
   }
 }
 </script>"""
@@ -549,25 +545,6 @@ pages["about.html"] = header(
         <p style="margin-top:1.4rem">If you have spent a submission season solving those by hand, you already know what you want out of a tool like this. See how that works in practice on the <a href="/pharma">Pharma page</a>, or across other sectors on <a href="/automation">Automation</a>.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section section--soft">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:2.4rem"><h2>Where we are</h2></div>
-    <div class="grid grid--2" style="max-width:820px;margin-inline:auto">
-      <div class="office">
-        <h3>United Kingdom</h3>
-        <p>The Charter Building, Charter Place<br>Uxbridge, Middlesex UB8 1JG<br>United Kingdom</p>
-        <p><a href="tel:+447702887219">+44 7702 887 219</a></p>
-      </div>
-      <div class="office">
-        <h3>Bangladesh</h3>
-        <p>93 Kajolshah<br>Sylhet 3100<br>Bangladesh</p>
-        <p><a href="tel:+8801730049205">+880 173 004 9205</a></p>
-      </div>
-    </div>
-    <p class="center" style="margin-top:2rem;font-size:.92rem;color:var(--muted)">Shafi Consultancy Limited &middot; Registered in England and Wales No. 4194731</p>
   </div>
 </section>
 
