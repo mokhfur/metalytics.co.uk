@@ -214,7 +214,7 @@ pages["index.html"] = header(
 # ----------------------------------------------------------- automation
 pages["automation.html"] = header(
     "automation", "Automation | Metalytics",
-    "Metadata driven automation — from real-time dashboards to fully automated reports, across any industry and any programming language.",
+    "Metadata driven automation, from real-time dashboards to fully automated reports, across any industry and any programming language.",
     "/automation") + f"""
 <section class="hero hero--inner">
   <div class="wrap">
@@ -494,7 +494,7 @@ pages["about.html"] = header(
 <section class="hero hero--inner">
   <div class="wrap">
     <h1>Built by statistical programmers, for statistical programmers</h1>
-    <p>Metalytics did not begin as a software product. It began as a list of problems that statistical programmers kept running into on real clinical studies &mdash; and then set about solving.</p>
+    <p>Metalytics did not begin as a software product. It began as a list of problems that statistical programmers kept running into on real clinical studies, and then set about solving.</p>
   </div>
 </section>
 
