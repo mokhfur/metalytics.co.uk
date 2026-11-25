@@ -515,7 +515,7 @@ pages["about.html"] = header(
         <span class="eyebrow">The company behind the platform</span>
         <h2>Shafi Consultancy Limited</h2>
         <p>Metalytics is developed by <a href="{SC}" rel="noopener">Shafi Consultancy Limited</a>, a specialist contract research organisation that does one thing and does it deeply: statistical programming for pharmaceutical and biotechnology companies.</p>
-        <p>Across 25 years the team has delivered CDISC-compliant SDTM and ADaM datasets, tables, listings and figures for Phase I to Phase IV studies &mdash; working both directly for sponsors and as a programming partner to other CROs.</p>
+        <p>Across 25 years the team has delivered CDISC-compliant SDTM and ADaM datasets, tables, listings and figures for Phase I to Phase IV studies, working both directly for sponsors and as a programming partner to other CROs.</p>
         <p>That delivery experience is the raw material for this platform. Every feature answers a question a programmer, a reviewer or an auditor actually asked on a live study.</p>
         <a class="btn btn--primary" href="{SC}/About_Shafi_Consultancy/" rel="noopener">More about Shafi Consultancy</a>
       </div>
