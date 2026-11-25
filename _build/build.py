@@ -64,7 +64,7 @@ def header(active, title, desc, path):
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
     <nav class="nav" id="primary-nav" aria-label="Main">
-      {link('/#about', 'About', 'about')}
+      {link('/about', 'About', 'about')}
       {link('/automation', 'Automation', 'automation')}
       {link('/pharma', 'Pharma', 'pharma')}
       <a class="btn btn--primary" href="#contact">Contact Us</a>
@@ -84,7 +84,7 @@ FOOTER = f"""</main>
       </div>
       <div>
         <ul class="footer-links">
-          <li><a href="/#about">About</a></li>
+          <li><a href="/about">About</a></li>
           <li><a href="/automation">Automation</a></li>
           <li><a href="/pharma">Pharma</a></li>
           <li><a href="/privacy-policy">Privacy Policy</a></li>
@@ -428,6 +428,152 @@ pages["404.html"] = simple(
  "404", "Page not found | Metalytics", "We could not find that page",
  '<p>The page you were looking for may have moved. Try the homepage, or get in touch and we will point you in the right direction.</p>'
  '<a class="btn btn--primary" href="/">Back to the homepage</a>', noindex=True)
+
+
+# ---------------------------------------------------------------- about
+SC = "https://www.shaficonsultancy.com"
+
+CAPABILITIES = [
+ ("Statistical Programming", f"{SC}/statistical-programming/",
+  "SDTM and ADaM datasets, tables, listings and figures for interim and final analyses."),
+ ("CDISC Implementation", f"{SC}/cdisc/",
+  "Standards-compliant mapping, specifications and Define-XML for regulatory submission."),
+ ("PK/PD and NONMEM", f"{SC}/nonmem/",
+  "Analysis-ready PK/PD datasets and NONMEM input files, supporting modelling teams."),
+ ("Validation and QC", f"{SC}/validation-and-qc/",
+  "Independent double programming and review against specifications and shells."),
+ ("Programming Resourcing", f"{SC}/statistical-programming-resourcing-support/",
+  "Programmers who integrate into client teams onsite, remotely or in a hybrid model."),
+ ("Training &amp; Knowledge Transfer", f"{SC}/training-and-knowledge-transfer/",
+  "Practical SAS training for pharma companies, CROs and clinical research professionals."),
+]
+
+CAP_CARDS = "".join(
+    f'''<div class="cap">
+        <h3><a href="{url}" rel="noopener">{name}</a></h3>
+        <p>{desc}</p>
+      </div>'''
+    for name, url, desc in CAPABILITIES)
+
+PAIN = [
+ "Programs rewritten from scratch because nobody could find the last one",
+ "Outputs that cannot be traced back to the data when a regulator asks",
+ "No single view of where a study&rsquo;s programs and outputs have actually got to",
+ "Review cycles that repeat because programs are hard for a reviewer to read",
+ "Standards applied inconsistently from one study to the next",
+]
+
+SCHEMA = """<script type=\"application/ld+json\">
+{
+  \"@context\": \"https://schema.org\",
+  \"@type\": \"AboutPage\",
+  \"url\": \"https://www.metalytics.co.uk/about\",
+  \"mainEntity\": {
+    \"@type\": \"Organization\",
+    \"name\": \"Shafi Consultancy Limited\",
+    \"url\": \"https://www.shaficonsultancy.com\",
+    \"description\": \"A specialist contract research organisation providing statistical programming, CDISC implementation and PK/PD support to pharmaceutical and biotechnology companies.\",
+    \"makesOffer\": {
+      \"@type\": \"Offer\",
+      \"itemOffered\": {
+        \"@type\": \"SoftwareApplication\",
+        \"name\": \"Metalytics\",
+        \"applicationCategory\": \"BusinessApplication\",
+        \"url\": \"https://www.metalytics.co.uk/\"
+      }
+    },
+    \"address\": [
+      {\"@type\": \"PostalAddress\", \"streetAddress\": \"The Charter Building, Charter Place\", \"addressLocality\": \"Uxbridge\", \"addressRegion\": \"Middlesex\", \"postalCode\": \"UB8 1JG\", \"addressCountry\": \"GB\"},
+      {\"@type\": \"PostalAddress\", \"streetAddress\": \"93 Kajolshah\", \"addressLocality\": \"Sylhet\", \"postalCode\": \"3100\", \"addressCountry\": \"BD\"}
+    ]
+  }
+}
+</script>"""
+
+pages["about.html"] = header(
+    "about", "About Metalytics | Built by Statistical Programmers at Shafi Consultancy",
+    "Metalytics is built by Shafi Consultancy, a specialist statistical programming CRO with 25 years of CDISC, SDTM, ADaM and TLF delivery for pharma and biotech.",
+    "/about") + f"""
+<section class="hero hero--inner">
+  <div class="wrap">
+    <h1>Built by statistical programmers, for statistical programmers</h1>
+    <p>Metalytics did not begin as a software product. It began as a list of problems that statistical programmers kept running into on real clinical studies &mdash; and then set about solving.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid grid--3">
+      {pillar("story", "Our Story", "We are committed to empowering businesses with the potential of their metadata. Our journey began with a vision to revolutionize the way data is managed and utilized.")}
+      {pillar("vision", "Our Vision", "We envision a future where metadata becomes the driving force behind seamless automation with AI, enabling businesses to thrive in a data-driven environment.")}
+      {pillar("tech", "Technology", "Metalytics leverages cutting-edge technology to harness the power of metadata and Artificial Intelligence, enabling organizations to be more efficient and reduce costs.")}
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <span class="eyebrow">The company behind the platform</span>
+        <h2>Shafi Consultancy Limited</h2>
+        <p>Metalytics is developed by <a href="{SC}" rel="noopener">Shafi Consultancy Limited</a>, a specialist contract research organisation that does one thing and does it deeply: statistical programming for pharmaceutical and biotechnology companies.</p>
+        <p>Across 25 years the team has delivered CDISC-compliant SDTM and ADaM datasets, tables, listings and figures for Phase I to Phase IV studies &mdash; working both directly for sponsors and as a programming partner to other CROs.</p>
+        <p>That delivery experience is the raw material for this platform. Every feature answers a question a programmer, a reviewer or an auditor actually asked on a live study.</p>
+        <a class="btn btn--primary" href="{SC}/About_Shafi_Consultancy/" rel="noopener">More about Shafi Consultancy</a>
+      </div>
+      <div class="split__media"><img src="/assets/img/art-dashboard.png" alt="Metalytics study reporting dashboard" width="800" height="600" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.8rem">
+      <h2>The statistical programming expertise behind it</h2>
+      <p class="lede">Metalytics draws on the same capabilities Shafi Consultancy delivers as a service. Each one links through to the detail.</p>
+    </div>
+    <div class="caps">{CAP_CARDS}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="split split--flip">
+      <div class="split__media"><img src="/assets/img/pharma-gears.jpg" alt="Clinical reporting workflow" width="761" height="664" loading="lazy"></div>
+      <div>
+        <h2>Why it matters that programmers built it</h2>
+        <p>Most clinical reporting tools are designed by software teams and handed to statistical programmers. Metalytics was built the other way round: the people who specified it had already written the macros, chased the traceability and sat through the review cycles.</p>
+        <p>So it starts from the things that genuinely cost a programming team time:</p>
+        <ul class="benefits">{"".join(f"<li>{x}</li>" for x in PAIN)}</ul>
+        <p style="margin-top:1.4rem">If you have spent a submission season solving those by hand, you already know what you want out of a tool like this. See how that works in practice on the <a href="/pharma">Pharma page</a>, or across other sectors on <a href="/automation">Automation</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.4rem"><h2>Where we are</h2></div>
+    <div class="grid grid--2" style="max-width:820px;margin-inline:auto">
+      <div class="office">
+        <h3>United Kingdom</h3>
+        <p>The Charter Building, Charter Place<br>Uxbridge, Middlesex UB8 1JG<br>United Kingdom</p>
+        <p><a href="tel:+447702887219">+44 7702 887 219</a></p>
+      </div>
+      <div class="office">
+        <h3>Bangladesh</h3>
+        <p>93 Kajolshah<br>Sylhet 3100<br>Bangladesh</p>
+        <p><a href="tel:+8801730049205">+880 173 004 9205</a></p>
+      </div>
+    </div>
+    <p class="center" style="margin-top:2rem;font-size:.92rem;color:var(--muted)">Shafi Consultancy Limited &middot; Registered in England and Wales No. 4194731</p>
+  </div>
+</section>
+
+{SCHEMA}
+""" + closer("Elevate your productivity with Metalytics&rsquo; advanced workflow solutions.",
+             "Streamline your processes and achieve superior efficiency and quality.") + FOOTER
 
 for name, content in pages.items():
     with open(os.path.join(ROOT, name), "w", encoding="utf-8") as fh:
