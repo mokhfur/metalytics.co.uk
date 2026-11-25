@@ -102,6 +102,7 @@ FOOTER = f"""</main>
     </div>
   </div>
 </footer>
+<script src="{asset('/assets/js/hero-bg.js')}" defer></script>
 <script src="{asset('/assets/js/site.js')}" defer></script>
 </body>
 </html>

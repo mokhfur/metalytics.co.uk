@@ -25,6 +25,7 @@ to `/page` so each page has one canonical address.
 | --- | --- |
 | `assets/css/site.css` | All styling — one file, no framework |
 | `assets/js/site.js` | Mobile navigation and in-place form submission |
+| `assets/js/hero-bg.js` | Animated hero background — a transparent canvas drawn over the hero gradient on every page. Motifs: a node/edge mesh with data packets (automation), a scatter plot with a live least-squares fit (statistics), drifting SAS fragments, a bar-chart horizon. Pauses off-screen, honours `prefers-reduced-motion`, and the hero falls back to the static image if JavaScript is off |
 | `assets/img/` | Logo, hero, illustrations and the Pharma feature panels |
 | `assets/docs/` | The TLF lifecycle guide offered on the homepage |
 | `contact.php` | Enquiry form handler (all three forms) |
