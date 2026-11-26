@@ -136,6 +136,52 @@
     }
   });
 
+  /* ---- product demos: play while on screen, never with sound ---- */
+  (function () {
+    var vids = [].slice.call(document.querySelectorAll('video[data-demo]'));
+    if (!vids.length || !window.IntersectionObserver) { return; }
+
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var conn = navigator.connection || navigator.webkitConnection || {};
+    if (calm || conn.saveData) { return; }
+
+    var io = new IntersectionObserver(function (entries) {
+      Array.prototype.forEach.call(entries, function (entry) {
+        var v = entry.target;
+        v.inView = entry.isIntersecting;
+        if (!entry.isIntersecting) {
+          if (!v.paused) { v.pause(); }
+          return;
+        }
+        if (v.held) { return; }
+        v.preload = 'auto';
+        var started = v.play();
+        if (started && started.catch) { started.catch(function () {}); }
+      });
+    }, { threshold: 0.4 });
+
+    Array.prototype.forEach.call(vids, function (v) {
+      /* a pause on a visible, on-screen video came from the visitor, so leave it paused */
+      v.addEventListener('pause', function () {
+        if (v.inView && !document.hidden) { v.held = true; }
+      });
+      v.addEventListener('play', function () { v.held = false; });
+      io.observe(v);
+    });
+
+    /* a hidden tab keeps nothing playing, and picks up again on return */
+    document.addEventListener('visibilitychange', function () {
+      Array.prototype.forEach.call(vids, function (v) {
+        if (document.hidden) {
+          if (!v.paused) { v.pause(); }
+        } else if (v.inView && !v.held) {
+          var started = v.play();
+          if (started && started.catch) { started.catch(function () {}); }
+        }
+      });
+    });
+  })();
+
   /* ---- current year in the footer ---- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-year]'), function (el) {
     el.textContent = new Date().getFullYear();
