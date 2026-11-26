@@ -280,6 +280,31 @@ DOTS = "".join(
     f'''<button class="carousel__dot" type="button" role="tab" aria-label="{title}" aria-selected="{"true" if i == 1 else "false"}"></button>'''
     for i, (title, alt) in enumerate(FEATURES, 1))
 
+DEMOS = [
+ ("pharma-summary-table", "Produce a Summary Table with just a few clicks",
+  "Choose a template, pick the analysis, preview the table and save it. No program is written by hand."),
+ ("pharma-figures", "Effortlessly generate Figures",
+  "Set the covariate and the axes, update the chart, and the figure is ready to save alongside the tables."),
+]
+
+DEMO_BLOCKS = "".join(
+    f'''<div class="demo">
+        <div class="demo__head">
+          <h3 id="demo-{slug}">{title}</h3>
+          <p>{note}</p>
+        </div>
+        <div class="demo__frame">
+          <video data-demo controls muted loop playsinline preload="metadata"
+                 width="1920" height="1080" aria-labelledby="demo-{slug}"
+                 poster="/assets/img/{slug}-poster.jpg">
+            <source src="/assets/video/{slug}.mp4" type="video/mp4">
+            <p>Your browser cannot play this video. <a href="/assets/video/{slug}.mp4">Download the recording</a> instead.</p>
+          </video>
+        </div>
+        <p class="demo__note">The recording has no sound. Use the full screen control for a closer look.</p>
+      </div>'''
+    for slug, title, note in DEMOS)
+
 ARROW = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>'
 
 FEATURE_CARDS = f'''<div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Metalytics clinical reporting features">
@@ -334,10 +359,23 @@ pages["pharma.html"] = header(
 <section class="section section--soft">
   <div class="wrap">
     <div class="center" style="margin-bottom:2.6rem">
-      <h2>Produce a Summary Table with just a few clicks</h2>
-      <p class="lede">Effortlessly generate Figures, and see how Metalytics answers the questions reviewers and auditors ask.</p>
+      <h2>The questions reviewers and auditors ask</h2>
+      <p class="lede">See how Metalytics answers them.</p>
     </div>
     {FEATURE_CARDS}
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:2.8rem">
+      <span class="eyebrow">Product tour</span>
+      <h2>Metalytics in action</h2>
+      <p class="lede">Two short recordings taken straight from the application.</p>
+    </div>
+    <div class="demos">
+      {DEMO_BLOCKS}
+    </div>
   </div>
 </section>
 

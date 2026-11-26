@@ -293,6 +293,23 @@ p{margin:0 0 1.1em}
   .carousel.is-ready .carousel__slide{transform:none!important}
 }
 
+/* ---------- product demo videos ---------- */
+.demos{display:grid;gap:clamp(2.6rem,6vw,4.2rem)}
+.demo__head{margin-bottom:1.1rem}
+.demo__head h3{font-size:clamp(1.2rem,2.5vw,1.6rem);margin-bottom:.3rem}
+.demo__frame{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  background:#0c0718;border:1px solid var(--line);box-shadow:var(--shadow);
+}
+.demo__frame video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0c0718}
+.demo__note{margin:.8rem 0 0;font-size:.92rem;color:var(--muted)}
+.section--dark .demo__frame{border-color:rgba(255,255,255,.14)}
+.section--dark .demo__note{color:#9a92b2}
+
+@media (max-width:620px){
+  .demo__note{font-size:.86rem}
+}
+
 /* ---------- about: capability cards + offices ---------- */
 .caps{display:grid;gap:1.4rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .cap{
